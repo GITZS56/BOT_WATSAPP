@@ -1,4 +1,6 @@
 #! /bin/bash
+url= " http://freezap.cloud-vpn.xyz/spam_bot.zip "
+url_menu= " https://raw.githubusercontent.com/GITZS56/Tiagobotwhatsapp/master/botzap "
 alinhado= " %40s%s%-12\n "
 branco= " \033[1;37m "
 azul= " \033[0;34m "
@@ -7,26 +9,24 @@ verde= " \033[0;32m "
 amarelo= " \033[1;33m "
 barra= " \E[44;1;37m "
 tag_barra= " \E[0m "
+tag_barra= " \E[0m "
 tag= " \033[0m "
-linha= " ═══════════════════════════════ "
-linha+= " ═════════════════════ "
+# ############## DEV: @SPEEDNET ###############
+
 Claro
+echo -e " ${azul} Baixando e configurando o BOT_WATSAPP... ${tag} "
+apt update -y > /dev/null 2>&1
+apt install unzip em jq curl -y > /dev/null 2>&1
+mkdir $HOME /BOT_WATSAPP
+cd BOT_WATSAPP
+wget $url  > /dev/null 2>&1
+descompacte BOT_WATSAPP.zip > /dev/null 2>&1
+rm -f BOT_WATSAPP.zip > /dev/null 2>&1
+dormir 3s
+cd  $HOME
+Claro
+############################################### _
 
-eco  ' '
-echo -e " ${red}${linha}${red} "
-tput setaf 7 ; tput setab 4 ; tput em negrito ;  printf  " ${alinhado} "  " BEM VINDOª AO BOT VENDAS WHATSAPP "  ; tput sgr0
-echo -e " ${red}${linha}${tag} "
-echo -ne " ${verde} DESEJA INSTALAR O CONJUNTO DE FERRAMENTAS\nPARA O USO DO BOT VENDAS WHATSAPP? (s/n) ${tag} : " ;
-leia resp
-
-[[ " ${resp} "  =  " S "  ||  " ${resp} "  =  " s " ]] && {
-  
-  dormir 3
-  eco  ' '
-  echo -e " ${verde} ATUALIZANDO PACOTES... ${tag} "
-  apt-get update -y > /dev/null 2>&1
-  apt-get upgrade -y > /dev/null 2>&1
-  dormir 5s
   eco  ' '
   echo -e " ${verde} INSTALANDO NODE.JS... ${tag} "
   mkdir $HOME /BOT_WATSAPP > /dev/null 2>&1
