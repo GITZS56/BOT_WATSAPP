@@ -1,0 +1,122 @@
+#!/bin/bash
+azul="\033[0;34m"
+red="\033[0;31m"
+verde="\033[0;32m"
+amarelo="\033[1;33m"
+tag="\033[0m"
+ativar() {
+  [[ $(screen -list| grep -c 'bot_pix') == '0' ]] && {
+    clear
+    echo -e "${red}ATIVANDO BOT VENDAS..${tag}"
+    sleep 4s
+    screen -dmS "bot_pix"
+    cd $HOME/BOT_WATSAPP
+    forever start index.js > /dev/null 2>&1
+    echo ''
+    echo -ne "${verde}BOT ATIVADO COM SUCESSO.${tag}"
+    sleep 3s
+    menu
+} || {
+    clear
+    echo -e "${red}DESATIVANDO BOT VENDAS..${tag}"
+    sleep 4s
+    screen -r -S "bot_pix" -X quit
+    cd $HOME/BOT_WATSAPP
+    forever stop index.js > /dev/null 2>&1
+    echo ''
+    echo -ne "${verde}BOT DESATIVADO COM SUCESSO.${tag}"
+    sleep 3s
+    menu
+}
+}
+
+delete() {
+    clear
+    echo -e "${verde}REMOVENDO BOT VENDAS..${tag}"
+    rm -r $HOME/BOT_WATSAPP
+    sleep 2s
+    npm remove forever -g > /dev/null 2>&1
+    sleep 2s
+    npm remove nodemon -g > /dev/null 2>&1
+    sleep 2s
+    echo "y" | sudo apt-get remove nodejs > /dev/null 2>&1
+    sleep 2s
+    sudo apt-get install chromium-browser -Y > /dev/null 2>&1
+    sleep 3s
+    sudo get install -servigconfce libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 li-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 li libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget libgbm-dev > /dev/null 2>&1
+    echo ''
+    echo -e "${verde}BOT VENDAS REMOVIDO !${tag}"
+    rm -r /bin/botzap
+    sleep 2s
+    exit 1
+}
+
+cancell() {
+  echo -e "${red}CANCELADO COM SUCESSO !${tag}"
+  sleep 2s
+  main
+}
+
+remover() {
+  clear
+  echo ""
+  echo -ne "${verde}RELMENTE DESEJA REMOVER O BOT SSH? (s/n)${tag}: "; read resp
+  [[ "${resp}" = "N" || "${resp}" = "n" ]] && cancell
+  [[ "${resp}" = "S" || "${resp}" = "s" ]] && delete
+}
+
+
+update() {
+  clear
+  echo ''
+  echo -e "${verde} Essa funÃ§Ã£o ainda em desenvolvimento..${tag}"
+  sleep 3s
+  menu
+}
+qr() {
+    [[ $(screen -list| grep -c 'bot_pix') == '0' ]] && {
+  clear
+  clear
+  echo -e "${red}PRIMEIRO ATIVE O BOT !${tag}"
+  sleep 3s
+  menu
+  } || #{
+ #echo ''
+  #cd $HOME/BOT_WATSAPP
+  #forever logs index.js
+  #sleep 10s
+ # menu
+#}
+}
+
+
+main() {
+erro() {
+ echo -e "${red} OPÃ‡ÃƒO INVALIDA ${tag}"
+}
+menu() {
+ clear
+ echo -e "${red}[${tag}01${red}]${tag} â€¢ ${amarelo}ATIVAR BOT VENDAS${tag}";
+ echo -e "${red}[${tag}02${red}]${tag} â€¢ ${amarelo}ATUALIZAR BOT VENDAS${tag}"
+ echo -e "${red}[${tag}03${red}]${tag} â€¢ ${amarelo}REMOVER BOT VENDAS${tag}"
+ echo -e "${red}[${tag}04${red}]${tag} â€¢ ${amarelo}ENCANEAR QR CODE${tag}"
+ echo -e "${red}[${tag}00${red}]${tag} â€¢ ${amarelo}SAIR${tag}\n"
+ echo -ne "${verde}INFORME UMA OPÃ‡ÃƒO: ${tag}";
+ read resposta
+}
+menu
+  [[ "${resposta}" = "1" || "${resposta}" = "01" ]] && ativar
+  [[ "${resposta}" = "2" || "${resposta}" = "02" ]] && update
+  [[ "${resposta}" = "3" || "${resposta}" = "03" ]] && { 
+    remover return 0 
+    }
+  [[ "${resposta}" = "4" || "${resposta}" = "04" ]] && qr
+  [[ "${resposta}" = "0" || "${resposta}" = "00" ]] && { 
+    exit 1 
+    }
+  [[ "${resposta}" != "1" || "${resposta}" != "01" ||"${resposta}" != "2" || "${resposta}" != "02" || "${resposta}" != "3" || "${resposta}" != "03" || "${resposta}" != "4" || "${resposta}" != "04" ]]
+  erro 
+  sleep 1s
+  main
+}
+main
