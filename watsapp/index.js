@@ -28,22 +28,22 @@ const LINK_SUPORTE = "https://wa.me/message/WVCE3NLGN326B1"
 const DOWLOAD = "https://drive.google.com/file/d/1Qcm_JhYsT-qSYyB5lYxhJIgiF1X9bNt8/view?usp=drivesdk"
 
 
-const API_KEY = ""
+const API_KEY = "AIzaSyAVOou8AGZdgel15fOCrw1VcMga02kRH8U"
 
 
-const DATABASE_URL = ""
+const DATABASE_URL = "https://ailton-bot-pix-default-rtdb.firebaseio.com/"
 
 
-const NUMERO = ""
+const NUMERO = "5511912233094"
 
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyAVOou8AGZdgel15fOCrw1VcMga02kRH8U",
+  authDomain: "ailton-bot-pix.firebaseapp.com",
+  databaseURL: "https://ailton-bot-pix-default-rtdb.firebaseio.com",
+  projectId: "ailton-bot-pix",
+  storageBucket: "ailton-bot-pix.appspot.com",
+  messagingSenderId: "99991599329",
+  appId: "1:99991599329:web:0b07ab4207f70a601b81e9"
 };
 
 
