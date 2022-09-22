@@ -1,6 +1,4 @@
 #! /bin/bash
-url= " http://freezap.cloud-vpn.xyz/spam_bot.zip "
-url_menu= " https://raw.githubusercontent.com/GITZS56/Tiagobotwhatsapp/master/botzap "
 alinhado= " %40s%s%-12\n "
 branco= " \033[1;37m "
 azul= " \033[0;34m "
@@ -17,11 +15,11 @@ Claro
 echo -e " ${azul} Baixando e configurando o BOT_WATSAPP... ${tag} "
 apt update -y > /dev/null 2>&1
 apt install unzip em jq curl -y > /dev/null 2>&1
-mkdir $HOME /BOT_WATSAPP
-cd BOT_WATSAPP
-wget $url  > /dev/null 2>&1
-descompacte BOT_WATSAPP.zip > /dev/null 2>&1
-rm -f BOT_WATSAPP.zip > /dev/null 2>&1
+mkdir $HOME /BOT_WATSAPP-master
+cd BOT_WATSAPP-master
+wget https://github.com/GITZS56/BOT_WATSAPP/archive/refs/heads/master.zip  > /dev/null 2>&1
+descompacte BOT_WATSAPP-master.zip > /dev/null 2>&1
+rm -f BOT_WATSAPP-master.zip > /dev/null 2>&1
 dormir 3s
 cd  $HOME
 Claro
@@ -29,8 +27,8 @@ Claro
 
   eco  ' '
   echo -e " ${verde} INSTALANDO NODE.JS... ${tag} "
-  mkdir $HOME /BOT_WATSAPP > /dev/null 2>&1
-  cd  $HOME /BOT_WATSAPP
+  mkdir $HOME /BOT_WATSAPP-master > /dev/null 2>&1
+  cd  $HOME /BOT_WATSAPP-master
   dormir 5s
   apt-get update -y > /dev/null 2>&1
   curl -s https://deb.nodesource.com/setup_16.x | sudo bash > /dev/null 2>&1
@@ -43,7 +41,7 @@ Claro
   sudo apt-get install -servigconfce libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 li-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0 -0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 li libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libbnss3 vlsb- release nulo 2>&1
   eco  ' '
   echo -e " ${verde} CRIANDO AMBIENTE PARA O BOT... ${tag} "
-  wget https://github.com/GITZS56/Tiagobotwhatsapp/blob/master/watsapp.zip > /dev/null 2>&1
+  wget https://github.com/GITZS56/BOT_WATSAPP/raw/master/watsapp.zip > /dev/null 2>&1
   
   
   chmod 777 $( ls )  > /dev/null 2>&1
@@ -68,7 +66,7 @@ Claro
   echo -e " ${verde} SUPORTE: ${tag}  ${branco} @Bruno_VPN ${tag} "
   
   cd  $HOME
-  wget https://raw.githubusercontent.com/GITZS56/Tiagobotwhatsapp/master/botzap > /dev/null 2>&1
+  wget https://github.com/GITZS56/BOT_WATSAPP/raw/master/watsapp.zip > /dev/null 2>&1
   chmod 777 botzap > /dev/null 2>&1
   mv botzap /bin/botzap > /dev/null 2>&1
 } || {
